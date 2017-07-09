@@ -5,10 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Sing implements Performance{
 
-	@Override
 	public void perform() throws PerformanceException {
 		System.out.println("I'm singing a song!");
-		
 	}
 
 }

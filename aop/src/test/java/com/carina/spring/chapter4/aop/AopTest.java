@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 
 public class AopTest extends TestCase {
 	
-	public void aopTest(){
+	public void testAop(){
 		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.carina.spring.chapter4.aop.config");
 		Performance sing = context.getBean(Performance.class);
