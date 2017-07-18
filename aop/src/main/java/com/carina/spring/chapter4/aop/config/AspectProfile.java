@@ -7,14 +7,21 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.DeclareParents;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import com.carina.spring.chapter4.aop.Imodel.Encoreable;
+import com.carina.spring.chapter4.aop.model.DefaultEncoreable;
 
 @Aspect
 @Component
 public class AspectProfile {
 	
 	private Map<Integer, Integer> trackCount = new HashMap<Integer, Integer>();
+	
+	@DeclareParents(value="com.carina.spring.chapter4.aop.Imodel.Performance+",defaultImpl=DefaultEncoreable.class)
+	public static Encoreable encoreable;
 	
 	@Pointcut("execution(** com.carina.spring.chapter4.aop.Imodel.Performance.perform(..))")
 	public void performance() {}
